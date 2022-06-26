@@ -7,14 +7,13 @@ const Navbar = () => {
     <header className="h-[100px] flex items-center justify-between mx-32">
       <div>
         <Link className="flex items-center" to="/">
-          <img className="h-10 mr-1" src={logo1} alt="" />
+          <img className="h-9 mr-1" src={logo1} alt="" />
           <p className="font-extrabold text-[18px]">
             <span className="text-transparent bg-clip-text text-xl bg-gradient-to-r from-orange-500 to-black ">
               red
             </span>
             dit timify
           </p>
-          {/* <img className="h-9 w-[150px]" src={logo} alt="" /> */}
         </Link>
       </div>
       <div>

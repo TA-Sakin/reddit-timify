@@ -4,11 +4,11 @@ import logo from "../../Assets/logo.png";
 import logo1 from "../../Assets/logo1.png";
 const Navbar = () => {
   return (
-    <header className="h-[100px] flex items-center justify-between mx-32">
+    <header className="h-[100px] flex items-center justify-between mx-6 lg:mx-32">
       <div>
         <Link className="flex items-center" to="/">
           <img className="h-9 mr-1" src={logo1} alt="" />
-          <p className="font-extrabold text-[18px]">
+          <p className="hidden sm:block font-extrabold text-[18px]">
             <span className="text-transparent bg-clip-text text-xl bg-gradient-to-r from-orange-500 to-black ">
               red
             </span>
@@ -17,13 +17,13 @@ const Navbar = () => {
         </Link>
       </div>
       <div>
-        <Link className="ml-[25px]" to="search">
+        <Link className="ml-4 md:ml-[25px]" to="search">
           Search
         </Link>
-        <Link className="ml-[25px]" to="">
+        <Link className="ml-4 md:ml-[25px]" to="">
           How it works
         </Link>
-        <Link className="ml-[25px]" to="">
+        <Link className="ml-4 md:ml-[25px]" to="">
           About
         </Link>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../Assets/logo.png";
 import logo1 from "../../Assets/logo1.png";
+import { DEFAULT_SUBREDDIT } from "./Constant";
 const Navbar = () => {
   return (
     <header className="h-[100px] flex items-center justify-between mx-6 lg:mx-32">
@@ -17,7 +17,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div>
-        <Link className="ml-4 md:ml-[25px]" to="search">
+        <Link className="ml-4 md:ml-[25px]" to={`/search/${DEFAULT_SUBREDDIT}`}>
           Search
         </Link>
         <Link className="ml-4 md:ml-[25px]" to="">

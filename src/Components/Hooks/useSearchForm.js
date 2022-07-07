@@ -14,12 +14,6 @@ const useSearchForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/search/${inputSubreddit}`);
-    // const url = `https://www.reddit.com/r/${inputSubreddit}/top.json?t=year&limit=100${
-    //   lastPostId ? `&after=${lastPostId}` : ""
-    // }`;
-    // fetch(url)
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
   };
 
   // update input value when URL is updated externally

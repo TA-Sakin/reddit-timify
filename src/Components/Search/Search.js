@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useSearchForm from "../Hooks/useSearchForm";
 import LoadHeatmap from "./LoadHeatmap";
-import LoadSpinner from "./LoadSpinner";
 
 const Search = () => {
   const { inputSubreddit, handleChange, handleSubmit } = useSearchForm();

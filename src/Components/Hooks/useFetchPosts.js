@@ -1,75 +1,44 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const fetchPosts = async (subreddit, allPosts = [], after = null) => {
-  const url = `https://www.reddit.com/r/${subreddit}/top.json?t=year&limit=100${
-    after ? `&after=${after}` : ""
-  }`;
+  let url = `https://www.reddit.com/r/${subreddit}/top.json?t=year&limit=100`;
 
   //fetch 500 posts
-  if (allPosts.length >= 500) {
+  if (allPosts.length > 400) {
     return allPosts;
   }
-  const response = await fetch(url);
-  const { data } = await response.json();
-  const currData = data.children;
-  // const parsed = currData.map((data) => data.data);
-  const nextPage = data.after;
-  allPosts.push(...currData);
 
+  if (after) {
+    url = `${url}&after=${after}`;
+  }
+  const result = await axios(url);
+  const currData = result.data.data.children;
+  const parsed = currData.map((data) => data.data);
+  const nextPage = result.data.data.after;
+  allPosts.push(...parsed);
   return fetchPosts(subreddit, allPosts, nextPage);
 };
 
-export const groupPostsPerDayAndHour = async (posts) => {
-  const postsPerDay = Array(7)
-    .fill()
-    .map(() => Array(24).fill([]));
-
-  posts.forEach((post) => {
-    const createdAt = new Date(post.data.created_utc * 1000);
-    const dayOfWeek = createdAt.getDay();
-    const hour = createdAt.getHours();
-    postsPerDay[dayOfWeek][hour].push({
-      createdAt: createdAt,
-      title: post.data.title,
-      url: `https://reddit.com${post.data.permalink}`,
-      score: post.data.score,
-      numComments: post.data.num_comments,
-      author: post.data.author,
-    });
-    return { postsPerDay };
-  });
-};
-
 function useFetchPosts(subreddit) {
-  const [allPosts, setAllPosts] = useState([]);
-  const [postsPerDay, setPostsPerDay] = useState([]);
-  const [status, setStatus] = useState("pending");
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
   useEffect(() => {
-    let mounted = true;
-    setStatus("pending");
+    setLoading(true);
     fetchPosts(subreddit)
-      .then((posts) => groupPostsPerDayAndHour(posts))
-      .then((postsData) => {
-        if (mounted) {
-          setPostsPerDay(postsData.postsPerDay);
-          setAllPosts(postsData.totalPosts);
-          setStatus("resolved");
-        }
+      .then((newPosts) => {
+        setPosts(newPosts);
+        setLoading(false);
       })
-      .catch(() => {
-        setStatus("rejected");
-      });
-    return () => {
-      mounted = false;
-    };
+      .catch(() => setError(true));
   }, [subreddit]);
 
   return {
-    isLoading: status === "pending",
-    hasError: status === "rejected",
-    postsPerDay,
-    allPosts,
+    loading,
+    error,
+    posts,
   };
 }
-
 export default useFetchPosts;

@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 const useSearchForm = () => {
   const { subreddit: initialSubreddit } = useParams();
   const [inputSubreddit, setInputSubreddit] = useState(initialSubreddit);
-  // const lastPostId = null;
   const navigate = useNavigate();
 
   const handleChange = (e) => {

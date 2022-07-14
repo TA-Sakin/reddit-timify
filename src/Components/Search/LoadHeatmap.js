@@ -8,23 +8,26 @@ import LoadSpinner from "./LoadSpinner";
 
 const LoadHeatmap = () => {
   const { subreddit } = useParams();
-  const { loading, error, posts } = useFetchPosts(subreddit);
+  const { status, posts } = useFetchPosts(subreddit);
   const [postsPerDay, setPostsPerDay] = useState(null);
 
   useEffect(() => {
     setPostsPerDay(groupPostsPerDayAndHour(posts));
   }, [posts]);
-  let errorMsg = <p>Please try again</p>;
-  if (loading) {
-    return <LoadSpinner />;
-  }
-  if (error) {
-    return errorMsg;
-  }
+
   return (
     <>
-      <div className="text-center">{errorMsg}</div>
-      {!loading && <Heatmap posts={postsPerDay} />}
+      {
+        {
+          loading: <LoadSpinner />,
+          error: (
+            <div className="text-center text-gray-500 mt-8 text-[17px]">
+              Subreddit not found. Please try another.
+            </div>
+          ),
+          loaded: <Heatmap posts={postsPerDay} />,
+        }[status]
+      }
     </>
   );
 };

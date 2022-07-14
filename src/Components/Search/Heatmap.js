@@ -26,7 +26,7 @@ const Heatmap = ({ posts }) => {
   });
 
   return (
-    <div className="max-w-[1115px] my-0 mx-auto mt-14">
+    <div className="max-w-[1115px] my-0 mx-auto mt-10">
       <HeatmapHours />
       <div className="flex max-h-[280px]">
         <HeatmapDays />

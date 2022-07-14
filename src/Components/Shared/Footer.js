@@ -5,7 +5,7 @@ import { FcReddit } from "react-icons/fc";
 
 const Footer = () => {
   return (
-    <div className="sm:mx-12 md:mx-32 text-[#93918F] h-[100px] mt-24 flex items-center justify-evenly">
+    <div className="sm:mx-12 md:mx-32 text-[#93918F] h-[100px] mt-24  flex items-center justify-evenly">
       <Link className="flex items-center" to="/">
         <p className="">reddit timify</p>
       </Link>

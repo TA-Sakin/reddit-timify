@@ -22,22 +22,20 @@ export const fetchPosts = async (subreddit, allPosts = [], after = null) => {
 
 function useFetchPosts(subreddit) {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [status, setStatus] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
+    setStatus("loading");
     fetchPosts(subreddit)
       .then((newPosts) => {
         setPosts(newPosts);
-        setLoading(false);
+        setStatus("loaded");
       })
-      .catch(() => setError(true));
+      .catch(() => setStatus("error"));
   }, [subreddit]);
 
   return {
-    loading,
-    error,
+    status,
     posts,
   };
 }

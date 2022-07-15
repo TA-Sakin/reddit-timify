@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import logo1 from "../../Assets/logo1.png";
 import { DEFAULT_SUBREDDIT } from "./Constant";
+import { HashLink as Link } from "react-router-hash-link";
 const Navbar = () => {
   return (
     <header className="h-[100px] flex items-center justify-between mx-6 lg:mx-32">
@@ -20,12 +21,12 @@ const Navbar = () => {
         <Link className="ml-4 md:ml-[25px]" to={`/search/${DEFAULT_SUBREDDIT}`}>
           Search
         </Link>
-        <a smooth className="ml-4 md:ml-[25px]" href="/#howitworks">
+        <Link smooth className="ml-4 md:ml-[25px]" to="/#howitworks">
           How it works
-        </a>
-        <a smooth className="ml-4 md:ml-[25px]" href="/#about">
+        </Link>
+        <Link smooth className="ml-4 md:ml-[25px]" to="/#about">
           About
-        </a>
+        </Link>
       </div>
     </header>
   );

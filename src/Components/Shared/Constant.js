@@ -1,4 +1,4 @@
-export const DEFAULT_SUBREDDIT = "javascript";
+export const DEFAULT_SUBREDDIT = "reactjs";
 export const days = [
   "Sunday",
   "Monday",

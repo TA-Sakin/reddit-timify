@@ -1,0 +1,36 @@
+.m-active {
+  color: white;
+  background-color: #000000 !important;
+}
+
+td {
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  padding: 8px;
+}
+
+td:first-child {
+  min-width: 373px;
+  max-width: 373px;
+}
+
+td:nth-child(2) {
+  min-width: 114px;
+}
+td:last-child,
+td:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+thead {
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  padding: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+}
+thead:first-child {
+  text-align: start;
+}

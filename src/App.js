@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import Search from "./Components/Search/Search";
 import Footer from "./Components/Shared/Footer";
+import { DEFAULT_SUBREDDIT } from "./Components/Shared/Constant";
 function App() {
   return (
     <>
@@ -13,7 +14,7 @@ function App() {
         <Route path="/search/:subreddit" element={<Search></Search>}></Route>
         <Route
           path="/search"
-          element={<Navigate replace to="/search/javascript" />}
+          element={<Navigate replace to={`/search/${DEFAULT_SUBREDDIT}`} />}
         />
       </Routes>
       <Footer></Footer>

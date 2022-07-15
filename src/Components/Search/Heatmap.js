@@ -4,6 +4,7 @@ import HeatmapHours from "./HeatmapHours";
 import HeatmapTiles from "./HeatmapTiles";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
+import PostsTable from "./PostsTable";
 
 const Heatmap = ({ posts }) => {
   const [selectedDayAndHour, setSelectedDayAndHour] = useState({
@@ -40,6 +41,9 @@ const Heatmap = ({ posts }) => {
           </span>
         </p>
       </div>
+      {posts[day] && posts[day][hour].length > 0 && (
+        <PostsTable posts={posts[day][hour]} />
+      )}
     </div>
   );
 };

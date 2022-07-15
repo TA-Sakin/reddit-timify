@@ -1,7 +1,7 @@
 import React from "react";
 import { colors } from "../Shared/Constant";
 import PropTypes from "prop-types";
-import "./tiles.css";
+import "./tilesAndTable.css";
 const HeatmapTiles = ({ posts, index, selected, setSelected }) => {
   let count = posts.length;
   const color = count >= 10 ? colors[10] : colors[count];

@@ -19,7 +19,7 @@ const Contents = () => {
         >
           SHOW ME THE BEST TIME
         </Link>
-        <p className="text-[#93918F] mt-8">r/javascript</p>
+        <p className="text-[#93918F] mt-8">r/{DEFAULT_SUBREDDIT}</p>
         <div className="flex justify-center mt-10">
           <Link to={`/search/${DEFAULT_SUBREDDIT}`}>
             <img src={table} alt="" />

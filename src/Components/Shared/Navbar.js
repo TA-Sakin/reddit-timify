@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo1 from "../../Assets/logo1.png";
 import { DEFAULT_SUBREDDIT } from "./Constant";
 const Navbar = () => {
@@ -20,12 +20,12 @@ const Navbar = () => {
         <Link className="ml-4 md:ml-[25px]" to={`/search/${DEFAULT_SUBREDDIT}`}>
           Search
         </Link>
-        <Link className="ml-4 md:ml-[25px]" to="">
+        <a smooth className="ml-4 md:ml-[25px]" href="/#howitworks">
           How it works
-        </Link>
-        <Link className="ml-4 md:ml-[25px]" to="">
+        </a>
+        <a smooth className="ml-4 md:ml-[25px]" href="/#about">
           About
-        </Link>
+        </a>
       </div>
     </header>
   );

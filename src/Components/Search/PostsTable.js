@@ -15,6 +15,7 @@ const PostsTable = ({ posts }) => {
           href={`https://reddit.com${post.permalink}`}
           target="_blank"
           rel="noopener noreferrer"
+          title={post.title}
         >
           {post.title}
         </a>
@@ -30,6 +31,7 @@ const PostsTable = ({ posts }) => {
             className="text-[#0087ff]"
             href={`https://reddit.com/u/${post.author}`}
             target="_blank"
+            title={post.author}
             rel="noopener noreferrer"
           >
             {post.author}

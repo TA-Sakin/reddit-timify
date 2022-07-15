@@ -18,6 +18,7 @@ const Search = () => {
           </div>
           <div className="w-full">
             <input
+              placeholder="Enter a subreddit"
               name="subreddit"
               type="text"
               value={inputSubreddit}

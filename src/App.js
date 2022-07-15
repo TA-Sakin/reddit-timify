@@ -5,6 +5,7 @@ import "./App.css";
 import Search from "./Components/Search/Search";
 import Footer from "./Components/Shared/Footer";
 import { DEFAULT_SUBREDDIT } from "./Components/Shared/Constant";
+import PageNotFound from "./Components/Shared/PageNotFound";
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           path="/search"
           element={<Navigate replace to={`/search/${DEFAULT_SUBREDDIT}`} />}
         />
+        <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </>

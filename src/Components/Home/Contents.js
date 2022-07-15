@@ -28,7 +28,9 @@ const Contents = () => {
       </div>
       <div className="mx-12 lg:mx-[350px] mt-32">
         <div>
-          <h3 className="text-2xl">How it works</h3>
+          <h3 id="howitworks" className="text-2xl">
+            How it works
+          </h3>
           <div className="text-[#93918F] mt-4">
             <p>
               • We find the 500 top posts from the past year for a subreddit.
@@ -41,26 +43,23 @@ const Contents = () => {
           </div>
         </div>
         <div className="mt-20 ">
-          <h3 className="text-2xl">About</h3>
+          <h3 id="about" className="text-2xl">
+            About
+          </h3>
           <div className="text-[#93918F] max-w-2xl mt-4">
             <p>
               The idea of this app is taken from{" "}
               <a
                 className="text-[#0087FF]"
                 href="https://profy.dev/"
-                alt="idea"
+                alt="profydev"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 profy.dev.{" "}
               </a>
               The goal of this app is to show you the best time to post on
-              reddit with relevent data.{" "}
-              {/* <a
-                className="text-[#0087FF]"
-                href="https://profy.dev/"
-                alt="idea"
-              >
-                Click here for more information.
-              </a> */}
+              reddit with relevent data.
             </p>
           </div>
         </div>
